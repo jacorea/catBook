@@ -14,6 +14,11 @@ class App extends Component {
       cats: cats
     }
   }
+
+  handleNewCat =(newCat)=> {
+    console.log(newCat);
+  }
+
   render() {
     return (
       <div>
@@ -21,7 +26,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/cats" render={(props)=> <Cats cats={this.state.cats}/> } />
-            <Route exact path="/" component={NewCat} />
+            <Route exact path="/" render={(props)=> <NewCat newCat={this.handleNewCat} /> } />
           </Switch>
         </Router>
       </div>

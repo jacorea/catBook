@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import {FormControl} from 'react-bootstrap';
+import {FormControl, Button, Form} from 'react-bootstrap';
 
 export class NewCat extends Component {
   constructor(props) {
@@ -23,26 +23,30 @@ export class NewCat extends Component {
   }
 
   render() {
+    const { name,age,enjoys} = this.state.form;
     return (
       <div>
+        <Form onSubmit={()=>this.props.newCat(this.state.form)}>
         <FormControl 
           type="text"
           name="name"
           onChange={this.handleChange}
-          value={this.state.form.name}
+          value={name}
         />
         <FormControl 
           type="text"
           name="age"
           onChange={this.handleChange}
-          value={this.state.form.age}
+          value={age}
         />
         <FormControl 
           type="text"
           name="enjoys"
           onChange={this.handleChange}
-          value={this.state.form.enjoys}
+          value={enjoys}
         />
+        <Button type="submit">Create Cat Profile</Button>
+        </Form>
       </div>
     )
   }
