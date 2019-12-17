@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import {FormControl, Button, Form} from 'react-bootstrap';
+import {FormControl,FormLabel, FormGroup, Button,Form,Row} from 'react-bootstrap';
 
 export class NewCat extends Component {
   constructor(props) {
@@ -25,28 +25,37 @@ export class NewCat extends Component {
   render() {
     const { name,age,enjoys} = this.state.form;
     return (
-      <div>
-        <Form onSubmit={()=>this.props.newCat(this.state.form)}>
-        <FormControl 
-          type="text"
-          name="name"
-          onChange={this.handleChange}
-          value={name}
-        />
-        <FormControl 
-          type="text"
-          name="age"
-          onChange={this.handleChange}
-          value={age}
-        />
-        <FormControl 
-          type="text"
-          name="enjoys"
-          onChange={this.handleChange}
-          value={enjoys}
-        />
-        <Button type="submit">Create Cat Profile</Button>
-        </Form>
+      <div className="container">
+      <Form onSubmit={()=>this.props.newCat(this.state.form)}>
+          <FormGroup>
+              <FormLabel id="name">Name</FormLabel>
+              <FormControl 
+                type="text"
+                name="name"
+                onChange={this.handleChange}
+                value={name}
+              />
+            </FormGroup>
+          <FormGroup>
+              <FormLabel id="age">Age</FormLabel>
+              <FormControl 
+                type="text"
+                name="age"
+                onChange={this.handleChange}
+                value={age}
+              />
+            </FormGroup>
+          <FormGroup>
+              <FormLabel id="age">Enjoys</FormLabel>
+              <FormControl 
+                type="text"
+                name="enjoys"
+                onChange={this.handleChange}
+                value={enjoys}
+              />
+            </FormGroup>
+          </Form>
+        <Button type="submit">Create New Cat</Button>
       </div>
     )
   }
